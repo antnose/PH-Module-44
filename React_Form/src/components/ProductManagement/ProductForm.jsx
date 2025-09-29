@@ -1,4 +1,7 @@
-const ProductForm = () => {
+import { useState } from "react";
+
+const ProductForm = ({ handleAddProduct }) => {
+  const [error, setError] = useState("");
   const handleProductSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -6,13 +9,24 @@ const ProductForm = () => {
     const productPrice = form.price.value;
     const productQuantity = form.quantity.value;
 
-    const newProduct = {
-      productName,
-      productPrice,
-      productQuantity,
-    };
-
-    console.log(newProduct);
+    // Validation
+    if (
+      !productName.length ||
+      !productPrice.length ||
+      !productQuantity.length ||
+      productPrice < 0 ||
+      productQuantity < 0
+    ) {
+      setError("Please enter valid info!");
+      alert(error);
+    } else {
+      const newProduct = {
+        productName,
+        productPrice,
+        productQuantity,
+      };
+      handleAddProduct(newProduct);
+    }
   };
 
   return (

@@ -1,9 +1,11 @@
-import React from "react";
+import { useContext } from "react";
+import { AssetsContext } from "./FamilyTree";
 
-const Special = () => {
+const Special = ({ asset }) => {
+  const newAsset = useContext(AssetsContext);
   return (
     <div>
-      <h3>Special</h3>
+      <h3>Special: {newAsset} </h3>
     </div>
   );
 };

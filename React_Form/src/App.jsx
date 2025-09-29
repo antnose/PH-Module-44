@@ -1,4 +1,6 @@
 import "./App.css";
+import ControlField from "./components/ControledField/ControlField";
+import FormAction from "./components/FormAction/FormAction";
 import SimpleForm from "./components/SimpleForm/SimpleForm";
 
 function App() {
@@ -7,7 +9,12 @@ function App() {
       <h1 className="text-center text-5xl font-bold mt-4">
         Explore react form
       </h1>
-      <SimpleForm />
+
+      {/* <SimpleForm /> */}
+
+      {/* <FormAction /> */}
+
+      <ControlField />
     </div>
   );
 }
